@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Form</title>
+</head>
+<body>
+
+  <div class="form-container">
+    <form id="designForm">
+      <div class="form-grid">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">First and Last Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <!-- Design Package -->
+        <div class="form-group">
+          <label for="package">Select a Design Package</label>
+          <select id="package" name="package" required>
+            <option value="">Choose a Package</option>
+            <option value="basic">Basic - $100</option>
+            <option value="standard">Standard - $200</option>
+            <option value="premium">Premium - $300</option>
+          </select>
+        </div>
+
+        <!-- Preferred Product -->
+        <div class="form-group">
+          <label for="product">Preferred Product</label>
+          <input type="text" id="product" name="product" required>
+        </div>
+
+        <!-- Price Range Slider -->
+        <div class="form-group">
+          <label for="priceRange">Price Range</label>
+          <input type="range" id="priceRange" name="priceRange" min="50" max="1000" step="50" oninput="updatePriceDisplay(this.value)">
+          <div class="price-range-display" id="priceDisplay">$50</div>
+        </div>
+
+        <!-- Interior Design Style Selection -->
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Select an Interior Design Style</label>
+          <div class="design-options">
+            <img src="images/style1.jpg" alt="Living Room" onclick="openModal(this)">
+            <img src="images/style2.jpg" alt="Modern Design" onclick="openModal(this)">
+            <img src="images/style3.jpg" alt="Boho Style" onclick="openModal(this)">
+            <input type="hidden" id="selectedStyle" name="selectedStyle">
+          </div>
+        </div>
+
+        <!-- Color Preferences -->
+        <div class="form-group" style="grid-column: span 2;">
+          <label for="colorPref">Color Preferences</label>
+          <input type="text" id="colorPref" name="colorPref">
+        </div>
+
+        <!-- Upload Room Photo -->
+        <div class="form-group" style="grid-column: span 2;">
+          <label for="roomPhoto">Upload a Photo of Your Room</label>
+          <input type="file" id="roomPhoto" name="roomPhoto" accept="image/*" required>
+        </div>
+
+        <!-- Comments -->
+        <div class="form-group" style="grid-column: span 2;">
+          <label for="comments">Description/Comments</label>
+          <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="button" class="submit-btn" onclick="initiatePayment()">Proceed to Payment</button>
+      </div>
+    </form>
+  </div>
+  <div id="modal" class="modal">
+    <button class="close-modal" onclick="closeModal()">×</button>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Enlarged Design Style">
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
